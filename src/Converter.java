@@ -25,15 +25,15 @@ public class Converter {
 
     //15
     public String intToRoman(int number) {
-        String roman = "";
+        StringBuilder roman = new StringBuilder();
         int arabianKey;
         do {
             arabianKey = arabianKeyMap.floorKey(number);
-            roman += arabianKeyMap.get(arabianKey);
+            roman.append(arabianKeyMap.get(arabianKey));
             number -= arabianKey;
         } while (number != 0);
 
-        return roman;
+        return roman.toString();
 
 
     }

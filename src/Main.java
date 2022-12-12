@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import static java.lang.Math.ceil;
-
 public class Main {
     public static void main(String[] args) throws Exception {
         //2+3
@@ -45,9 +43,6 @@ public class Main {
             boolean isRoman = converter.isRoman(data[0]);
             if(isRoman){
                 //если римские, то конвертируем их в арабские
-                //X+V
-                //x-10
-                //v - 5
                 a = converter.romanToInt(data[0]);
                 b = converter.romanToInt(data[1]);
 
@@ -68,24 +63,21 @@ public class Main {
 
 
             if ((a > 10 || a < 1) || (b > 10 || b < 1)) {
-                System.out.println("Введите числа формате от 1 до 10 или от I до X ");
+                throw new Exception("Введите числа формате от 1 до 10 или от I до X ");
             }
 
+                if (isRoman) {  //15->XV
+                    if (result <= 0) {
+                        throw new Exception("Римские числа не могут быть отрицательными");
 
-
-            if(isRoman){  //15->XV
-                if(result<=0){
-                    throw new Exception("Римские числа не могут быть отрицательными");
-
+                    }
+                    //если числа были римские, возвращаем результат в римском числе
+                    System.out.println(converter.intToRoman(result));
+                } else {
+                    //если числа были арабские, возвращаем результат в арабском числе
+                    System.out.println(result);
                 }
-                //если числа были римские, возвращаем результат в римском числе
-                System.out.println(converter.intToRoman(result));
-            }
 
-            else{
-                //если числа были арабские, возвращаем результат в арабском числе
-                System.out.println(result);
-            }
         }else{
             System.out.println("Числа должны быть в одном формате");
         }
