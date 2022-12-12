@@ -11,6 +11,7 @@ public class Main {
         System.out.print("Введите выражение: ");
         String exp = scn.nextLine();
 
+        //Определяем вводные числа состоят из двух чисел или нет
         String[] arr = exp.split("\\+");
         if(arr.length>=3){
             throw new Exception("Количество операндов должно быть 2");
